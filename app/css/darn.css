@@ -1,0 +1,97 @@
+html, body {
+  display:-moz-box;
+  display: -ms-box;
+  display: -webkit-box;
+  display:box;
+  -webkit-box-flex:1;
+  -moz-box-flex:1;
+  -ms-box-flex:1;
+  box-flex :1;
+  -webkit-box-orient:vertical;
+  -moz-box-orient:vertical;
+  -ms-box-orient:vertical;
+  box-orient:vertical;
+  font-family: sans-serif;
+  height: 100%;
+  padding: 0;
+  margin: 0; 
+}
+
+body {
+  padding: 5px; }
+
+#header{
+  width:10%;
+  height:25%;
+}
+
+section {
+  display:-moz-box;
+  display: -ms-box;
+  display: -webkit-box;
+  display: box;
+  -webkit-box-flex:1;
+  -moz-box-flex:1;
+  -ms-box-flex:1;
+  box-flex:1;
+  -webkit-transition:all 0.2s ease;
+  -moz-transition:all 0.2s ease;
+  -ms-transition:all 0.2s ease;
+  transition: all 0.2s ease;
+  height: 33%;
+}
+
+section:hover {
+  height: 50%; 
+}
+
+section article {
+  display:-moz-box;
+  display: -ms-box;
+  display: -webkit-box;
+  display: box;
+  -webkit-box-flex:1;
+  -moz-box-flex:1;
+  -ms-box-flex:1;
+  box-flex:1;
+  -webkit-transition:all 0.2s ease;
+  -moz-transition:all 0.2s ease;
+  -ms-transition:all 0.2s ease;
+  transition:all 0.2s ease;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #aaa;
+  background-color: #ccc;
+  width: 33%;
+  position: relative;
+  color: #666;
+  font-size: 14px;
+  line-height: 12px; 
+}
+
+section article:hover {    
+  width: 80%;
+  background-color: #b3b3b3; 
+}
+
+section article::after, section article::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #666; 
+}
+
+section article::before {
+  width: 1px;
+  height: 11px;
+  margin-top: -5px;
+}
+
+section article::after {
+  width: 11px;
+  height: 1px;
+  margin-left: -5px; 
+}
+x

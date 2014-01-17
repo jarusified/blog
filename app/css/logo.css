@@ -1,0 +1,64 @@
+*,*:before,*:after{
+  box-sizing:border-box;
+}
+
+.letter{
+	display: inline-block;
+	font-weight: 1200;
+	font-family: 'Damion', cursive; 
+	font-size: 70px;
+	position: relative;
+	color: rgba(0, 180, 241, 1);
+	transform-style:preserve-3d;
+	perpective:400;
+	z-index:1;
+}
+
+.letter:before,.letter:after{
+	position: absolute;
+	content: attr(data);
+	top:0;
+	left:0;
+}
+
+.letter,.letter:before,.letter:after{
+	transition:all 0.2s linear;
+}
+
+.letter:before{
+	color: rgba(255, 255, 255, 1);
+  text-shadow: 
+    -1px 0px 1px rgba(255,255,255,.8),
+    1px 0px 1px rgba(0,0,0,.8);
+  z-index: 3;
+  transform:
+    rotateX(0deg)
+    rotateY(-30deg)
+    rotateZ(0deg);
+}
+
+.letter:after{
+  color: rgba(0,0,0,.11);
+  z-index:2;
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(0deg)
+    rotateZ(0deg)
+    skew(0deg,1deg);
+}
+.letter:hover:before{
+  color:rgba(250, 250, 250, 1);
+  transform:
+    rotateX(0deg)
+    rotateY(-60deg)
+    rotateZ(0deg);
+}
+.letter:hover:after{
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(60deg)
+    rotateZ(0deg)
+    skew(0deg,22deg);
+}
