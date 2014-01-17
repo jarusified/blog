@@ -12,22 +12,33 @@
         {% include styles.html %}
         <!-- Custom CSS -->
         <link rel="stylesheet" href="/css/main.css">
-        {% include scripts.html %}
 
     </head>
     <body>
-
         <div class="site">
-          <nav class="navbar-fixed-top">
-            <ul>
-              <li><a href="/">Blog</a></li>
-              <li><a href="/projects">Projects </a></li>
-              <li><a href="/aboutus"> About us </a></li>
-              <li><a href="/contactus"> Contact us </a></li>
-            </ul>
-          </nav>
-          <div id="logo" class="container">
-              <h1 id="animation">DELTA </h1>
+           <header id="header">   
+              <nav class="navbar-fixed-top">
+                <ul>
+                  <li><a href="/">Blog</a></li>
+                  <li><a href="/projects">Projects </a></li>
+                  <li><a href="/aboutus"> About us </a></li>
+                  <li><a href="/contactus"> Contact us </a></li>
+                </ul>
+              </nav>
+           </header>
+              
+              <div id="logo" class="container">
+              <center>
+              <div class="sticky stuck" style='width:900px;'>
+                <center>
+                    <span class="letter" data="D">D</span>
+                    <span class="letter" data="E">E</span>
+                    <span class="letter" data="L">L</span>
+                    <span class="letter" data="T">T</span>
+                    <span class="letter" data="A">A</span>
+                </center>
+            </div>   
+          </center>
           </div>
           
           <div class="row main-content">
@@ -51,5 +62,11 @@
           </div>
         </div>
 
+        <a id="top_button">
+          "Top"
+          <i class="icon icon-up"></i>
+        </a>  
+
+     {% include scripts.html %}
     </body>
 </html>
