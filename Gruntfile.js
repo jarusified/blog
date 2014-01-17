@@ -1,19 +1,20 @@
-var dummy= require('connect-livereload')({ port:4000});
-var mount =function(connect,dir){
+var lrSnippet= require('connect-livereload')({ port:4000});
+var mountFolder =function(connect,dir){
     return connect.static(require('path').resolve(dir));
-}
+};
+var delta={
+    app:'app',
+    dist:'dist'
+};
 
 module.exports = function(grunt){
 
     grunt.initConfig({
-        delta:{
-            app:'app',
-            dist:'dist'
-        },
+        
 
         watch:{
             jekyll:{
-                files:['<%= delta.app %>/**/*.{html,md,yml}','_config.yml','!<%= delta.app %>/_bower_components'],
+                files:['<%= delta.app %>/**/*.{html,md,mkd,markdown,yml}','_config.yml','!<%= delta.app %>/_bower_components'],
                 tasks:['jekyll:server']
             },
             livereload:{
@@ -22,9 +23,9 @@ module.exports = function(grunt){
                 },
                 files:[
                 '.jekyll/**/*.html',
-                '{.tmp,<%= yeoman.app %>}/css/**/*.css',
-                '{.tmp,<%= yeoman.app %>}/<%= js %>/**/*.js',
-                '<%= yeoman.app %>/images/**/*.{gif,jpg,jpeg,png,svg,webp}'
+                '{.tmp,<%= delta.app %>}/css/**/*.css',
+                '{.tmp,<%= delta.app %>}/<%= js %>/**/*.js',
+                '<%= delta.app %>/images/**/*.{gif,jpg,jpeg,png,svg,webp}'
                 ]
             }    
         },
@@ -54,18 +55,19 @@ module.exports = function(grunt){
                 options:{
                     middleware:function(connect){
                         return [
-                        mount(connect,'.tmp'),
-                        mount(connect,'test')
+                        mountFolder(connect,'.tmp'),
+                        mountFolder(connect,'test')
                         ];
                     }
                 }
             },
-             dist: {
+            dist: {
                 options: {
                   middleware: function (connect) {
                     return [
                     mountFolder(connect, delta.dist)
                     ];
+                    }   
                 }
             }
         },
@@ -110,7 +112,7 @@ module.exports = function(grunt){
                 verbose: true
               },
               report: {
-               src: ['<%= yeoman.app %>/css/**/*.css']
+               src: ['<%= delta.app %>/css/**/*.css']
              }
         },
         copy:{
@@ -132,7 +134,7 @@ module.exports = function(grunt){
                 files:{
                     src:[
                     '<%= delta.dist %>/js/**/*.js',
-                    '<%= delta.dist %>/css/**/*.css',
+                    '<%= delta.dist %>/css/ **/*.css',
                     '<%= delta.dist %>/images/**/*.{gif,jpg,jpeg,png}',
                     '<%= delta.dist %>/fonts/**/*.{svg,ttf,woff}'
                     ]
@@ -151,23 +153,24 @@ module.exports = function(grunt){
 
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-    grunt.registerTask('server',function(target){
+    grunt.registerTask('server', function(target){
         if(target=== 'dist'){
             return grunt.task.run(['build','open','connect:dist:keepalive']);
         }
-        grunt.task.run('build', [
+        grunt.task.run([
             'clean:server',
             'concurrent:server',
-            'open',
             'watch',
-            'rev'
+            //'connect-livereload'
+            'open',
             ]);
-    });
+    });    
 
     grunt.registerTask('build',[
         'jekyll:dist',
         'concurrent:dist',
-        'clean:dist'
+        'clean:dist',
+        'rev'
     ]);
 
     grunt.registerTask('default',[
