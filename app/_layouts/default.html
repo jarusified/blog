@@ -9,20 +9,31 @@
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
 
+        {% include styles.html %}
         <!-- Custom CSS -->
         <link rel="stylesheet" href="/css/main.css">
+        {% include scripts.html %}
 
     </head>
     <body>
 
         <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-            <a class="extra" href="/">home</a>
+          <nav class="navbar-fixed-top">
+            <ul>
+              <li><a href="/">Blog</a></li>
+              <li><a href="/projects">Projects </a></li>
+              <li><a href="/aboutus"> About us </a></li>
+              <li><a href="/contactus"> Contact us </a></li>
+            </ul>
+          </nav>
+          <div id="logo" class="container">
+              <h1 id="animation">DELTA </h1>
           </div>
-
-          {{ content }}
-
+          
+          <div class="row main-content">
+              {{ content }}
+          </div>
+              
           <div class="footer">
             <div class="contact">
               <p>
