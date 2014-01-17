@@ -1,4 +1,4 @@
-var lrSnippet= require('connect-livereload')({ port:4000});
+var lrSnippet= require('connect-livereload')({ port:3000});
 var mountFolder =function(connect,dir){
     return connect.static(require('path').resolve(dir));
 };
@@ -19,7 +19,7 @@ module.exports = function(grunt){
             },
             livereload:{
                 options:{
-                    livereload:4000
+                    livereload:3000
                 },
                 files:[
                 '.jekyll/**/*.html',
