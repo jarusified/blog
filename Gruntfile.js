@@ -1,8 +1,8 @@
-var lrSnippet= require('connect-livereload')({ port:3000});
+var lrSnippet= require('connect-livereload')({ port:4000});
 var mountFolder =function(connect,dir){
     return connect.static(require('path').resolve(dir));
 };
-var delta={
+var deltaConf={
     app:'app',
     dist:'dist'
 };
@@ -11,6 +11,7 @@ module.exports = function(grunt){
 
     grunt.initConfig({
         
+        delta:deltaConf,
 
         watch:{
             jekyll:{
@@ -19,7 +20,7 @@ module.exports = function(grunt){
             },
             livereload:{
                 options:{
-                    livereload:3000
+                    livereload:4000
                 },
                 files:[
                 '.jekyll/**/*.html',
@@ -46,7 +47,7 @@ module.exports = function(grunt){
                     lrSnippet,
                     mountFolder(connect, '.tmp'),
                     mountFolder(connect, '.jekyll'),
-                    mountFolder(connect, delta.app)
+                    mountFolder(connect, deltaConf.app)
                     ];
                   }
                 }
@@ -65,7 +66,7 @@ module.exports = function(grunt){
                 options: {
                   middleware: function (connect) {
                     return [
-                    mountFolder(connect, delta.dist)
+                    mountFolder(connect, deltaConf.dist)
                     ];
                     }   
                 }
@@ -84,23 +85,23 @@ module.exports = function(grunt){
                 },
                 server:['.tmp','.jekyll']
         },
-        jekyll:{
-            options:{
-                bundleExec:true,
-                src: '<%= delta.app %>'
-            },
-            dist:{
-                options:{
-                    dest:'<%= delta.dist %>',
-                    config:'_config.yml,_config.build.yml'
+            jekyll: {
+              options: {
+                bundleExec: true,
+                src : '<%= delta.app %>'
+              },
+              dist: {
+                options: {
+                  dest: '<%= delta.dist %>',
+                  config: '_config.yml,_config.build.yml'
                 }
-            },
-            server:{
-                options:{
-                    dest:'.jekyll',
-                    config:'_config.yml'
+              },
+              server: {
+                options: {
+                  dest: '.jekyll',
+                  config: '_config.yml'
                 }
-            }
+              }
         },
         csscss: {
               options: {
@@ -155,14 +156,14 @@ module.exports = function(grunt){
 
     grunt.registerTask('server', function(target){
         if(target=== 'dist'){
-            return grunt.task.run(['build','open','connect:dist:keepalive']);
+            return grunt.task.run(['build','open']);
         }
         grunt.task.run([
             'clean:server',
             'concurrent:server',
-            'watch',
-            //'connect-livereload'
+            'connect:livereload',
             'open',
+            'watch'
             ]);
     });    
 
