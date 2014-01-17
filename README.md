@@ -4,10 +4,12 @@ blog
 A blog with
 
 1.grunt
+
 2.jekyll
+
 3.some ruby 
  
-This blog needs [** grunt **](http://gruntjs.com)
+This blog needs [**grunt**](http://gruntjs.com)
 
 once you have all the requirements
 
