@@ -1,14 +1,21 @@
 blog
 ====
 
-a blog with yeoman,jekyll and some ruby 
+A blog with 
+*grunt
+*jekyll
+*some ruby 
  
-this blog needs grunt to be installed....for further info about grunt <a href="http://gruntjs.com/">
+This blog needs [** grunt **](http://gruntjs.com)
 
 once you have all the requirements
 
-npm install (* to install all local node modules)
+Type the following commands in your terminal 
 
-then grunt server to serve the currently under construction server...:)
+1.**npm install **
+
+2.**grunt server** 
+
+This will serve the blog page ..:)
 
 will be soon completed...:P
