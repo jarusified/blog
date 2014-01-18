@@ -4,7 +4,6 @@ title: Delta Blog
 ---
 
 <div>
- 
   <ul class="blog-posts">
     {% for post in site.posts %}
       <li>
@@ -30,4 +29,20 @@ title: Delta Blog
       </li>
     {% endfor %}
   </ul>
+</div>
+<div class="blog-pagination">
+	<div class="newer">
+		{% if paginator.previous_page %}
+		{% if paginator.previous_page == 1 %}
+		<a href="/">« Newer posts</a>
+		{% else %}
+		<a href="/page{{ paginator.previous_page }}/" >« Newer posts</a>
+		{% endif %}
+		{% endif %}
+	</div>
+	<div class="older">
+		{% if paginator.next_page %} 
+		<a href="/page{{ paginator.next_page }}/">Older posts »</a>
+		{% endif %} 
+	</div>
 </div>

@@ -13,6 +13,10 @@ body{
 	}
 }
 
+body{
+	overflow-x:hidden;
+	overflow-y:scroll; 
+}
 /* nav bar css */
 nav {
 	height: 5%;
@@ -153,6 +157,7 @@ nav a:hover, nav a:focus{
 
 /* for the blog posts and layut */
 .main-content{
+	left:20%;
 	margin-top: 90px;
 	margin-bottom: 70px;
 }
