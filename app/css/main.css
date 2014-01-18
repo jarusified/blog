@@ -1,3 +1,18 @@
+/* for body */
+
+body{
+	padding-top:60px;
+	padding-bottom: 60px;
+}
+
+@media (max-width:480px){
+
+	body{
+		padding-top:30px;
+		padding-bottom:30px;
+	}
+}
+
 /* nav bar css */
 nav {
 	height: 5%;
@@ -128,8 +143,57 @@ nav a:hover, nav a:focus{
 	color: #ecf0f1;
 } 
 
+/*for the logo */
 #logo{
 	width:100%;
 	position:fixed;
 	top:6%;
+}
+
+
+/* for the blog posts and layut */
+.main-content{
+	margin-top: 90px;
+	margin-bottom: 70px;
+}
+
+@media (max-width:480px){
+	.main content{
+		margin-top:40px;
+		margin-bottom:35px;
+	}
+}
+
+ul .blog-posts{
+	margin-right:45px;
+}
+
+.blog-post{
+	line-height: 30px;
+}
+
+.blog-pagination{
+	margin-top:80px;
+}
+
+.blog-pagination .newer {
+	float ; left;
+}
+
+.blog-pagination .older {
+	float:right;
+}
+ul.blog-posts{
+	list-style:none;
+	margin:0;
+}
+ul.blog-posts li{
+	background-position:bottom center;
+	background-repeat:no-repeat;
+	margin-bottom:60px;
+	padding-bottom:60px;
+}
+ul.blog-posts li.last{
+	background-image:none;
+	padding-bottom:0px; 
 }
