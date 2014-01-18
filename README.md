@@ -15,7 +15,7 @@ once you have all the requirements
 
 Type the following commands in your terminal 
 
-1.**npm install**
+1.**npm install --force** there are some problems with *open*...will be soon looked after
 
 2.**grunt server** 
 
