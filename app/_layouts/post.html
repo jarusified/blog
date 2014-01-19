@@ -1,9 +1,28 @@
 ---
 layout: default
 ---
-<h2>{{ page.title }}</h2>
-<p class="meta">{{ page.date | date_to_string }}</p>
-
-<div class="post">
-{{ content }}
+<div class="col-md-2">
+		{% if page.previous.url %}
+		<a id="leftarrow" class="arrow link" href="{{page.previous.url}}">
+				<span class="fa fa-arrow-circle-o-left"></span>
+				<label>Previous </label>
+		</a>
+		{% endif %}
 </div>
+
+<div class="col-md-12 post_content">
+	<article>
+		<h1 class="featurette-heading text-muted"><center>{{page.title}}</center></h1>
+		<p class="lead"> {{ content }} </p>
+	</article>
+	<hr class="featurette-divider">
+</div>
+
+<div class="col-md-2">
+	{% if page.next.url %}
+	<a id="rightarrow" class="arrow link" href="{{page.next.url}}">
+			<span class="fa fa-arrow-circle-o-right"></span>
+			<label>Next </label>
+	</a>
+	{% endif %}				
+</div>	

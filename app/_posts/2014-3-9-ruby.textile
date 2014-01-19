@@ -1,0 +1,6 @@
+---
+layout: post
+title: rails 3 version book
+category: ruby on rails
+---
+Using Rails 3, developers can build web applications of exceptional elegance and power. Although its remarkable capabilities have made Ruby on Rails one of the world's most popular web development frameworks, it can be challenging to learn and use. Ruby on Rails 3 Tutorial is the solution. Leading Rails developer Michael Hartl teaches Rails 3 by guiding you through the development of your own complete sample application using the latest techniques in Rails web development.

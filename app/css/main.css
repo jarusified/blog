@@ -13,10 +13,12 @@ body{
 	}
 }
 
+/* enabling scroll */
 body{
 	overflow-x:hidden;
 	overflow-y:scroll; 
 }
+
 /* nav bar css */
 nav {
 	height: 5%;
@@ -157,13 +159,12 @@ nav a:hover, nav a:focus{
 
 /* for the blog posts and layut */
 .main-content{
-	left:20%;
 	margin-top: 90px;
 	margin-bottom: 70px;
 }
 
 @media (max-width:480px){
-	.main content{
+	.main-content{
 		margin-top:40px;
 		margin-bottom:35px;
 	}
@@ -182,7 +183,7 @@ ul .blog-posts{
 }
 
 .blog-pagination .newer {
-	float ; left;
+	float : left;
 }
 
 .blog-pagination .older {
@@ -201,4 +202,68 @@ ul.blog-posts li{
 ul.blog-posts li.last{
 	background-image:none;
 	padding-bottom:0px; 
+}
+
+#date{
+	font-size: 18px;
+	text-align: left;
+}
+.featurette-divider{
+	margin:80px 0;
+}
+hr{
+	display:block;
+	-webkit-margin-before:0.5em;
+	-webkit-margin-after:0.5em;
+	-webkit-margin-start:auto;
+	-webkit-margin-end:auto;
+}
+/* size of the arrow links */
+.arrow{
+	font-size: 2.4em;
+}	
+.link{
+	display: block;
+	height: 30%;
+	text-align: center;
+	color: #428bca;
+	font-size: 2.20em;
+	line-height: 2.5em;
+	text-decoration: none;
+	-webkit-transition: color .5s ease-in-out;
+	-moz-transition: color .5s ease-in-out;
+	-o-transition: color .5s ease-in-out;
+	transition: color .5s ease-in-out;
+}
+
+.link:hover { color: #2a6496; }
+
+a:last-child { border-bottom: 0px; }
+
+.link label
+{
+
+	position: absolute;
+	z-index: 999;
+	left: 110px;
+	color: #EA5757;
+	font-family:"open sans";
+    font-weight:500;
+    font-size:20px;
+	white-space: nowrap;
+	margin-top: 10px;
+	padding: 0px 10px 0px 10px;
+	line-height: 3.5em;
+	opacity: 0;
+	display: inline-block;
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
+ .link span:hover ~ label
+{
+	opacity: 1;
+	left: 200px;
 }
